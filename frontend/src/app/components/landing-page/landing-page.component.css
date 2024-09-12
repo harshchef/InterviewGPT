@@ -1,0 +1,99 @@
+/* landing-page.component.css */
+
+.landing-page {
+    position: relative;
+    color: white;
+}
+
+.overlay {
+    background:linear-gradient(to bottom, #00008B, #87CEFA);
+    /* Dark overlay */
+}
+
+.features h3 {
+    font-weight: 600;
+}
+
+.features i {
+    color: #007bff;
+}
+
+.features p {
+    color: #6c757d;
+}
+/* landing-page.component.css */
+
+.typewriter {
+  display: inline-block;
+  overflow: hidden; /* Ensures the text disappears until it is animated */
+  white-space: nowrap; /* Prevents wrapping of the text */
+  border-right: .15em solid #fff; /* Adds a blinking cursor effect */
+  font-size: 4rem; /* Makes the text larger */
+  font-weight: bold; /* Makes the text bold */
+  animation: 
+    typing 4s steps(40, end), /* Adjust duration if needed */
+    blink-caret .75s step-end infinite;
+}
+
+/* Rainbow text color */
+.rainbow {
+  background: linear-gradient(90deg,#ff007f, #ff00cc, #ee00ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  
+}
+
+/* Typewriter animation */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* Blinking caret animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+
+/* landing-page.component.css */
+
+/* Button styling */
+.btn-primary-highlight {
+    background: linear-gradient(45deg,#ff007f, #ff00ff);
+    /* Gradient background */
+    border: none;
+    /* Remove default border */
+    color: #fff;
+    /* White text color */
+    font-size: 1.25rem;
+    /* Larger font size */
+    font-weight: bold;
+    /* Bold text */
+    padding: 0.75rem 1.5rem;
+    /* Padding for size */
+    border-radius: 50px;
+    /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Shadow for depth */
+    transition: all 0.3s ease;
+    /* Smooth transition */
+}
+
+.btn-primary-highlight:hover {
+    background: linear-gradient(45deg, #ff007f,
+        #ff00ff);
+    /* Reversed gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    /* Deeper shadow on hover */
+    transform: translateY(-2px);
+    /* Slight lift effect */
+}
+
+.btn-primary-highlight:focus {
+    outline: none;
+    /* Remove default focus outline */
+    box-shadow: 0 0 0 4px rgba(255, 105, 180, 0.5);
+    /* Focus ring */
+}
