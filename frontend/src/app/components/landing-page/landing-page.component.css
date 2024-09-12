@@ -37,7 +37,7 @@
 
 /* Rainbow text color */
 .rainbow {
-  background: linear-gradient(90deg,#ff007f, #ff00cc, #ee00ff);
+  background: linear-gradient(45deg,#ff007f, #ff00cc, #ee00ff);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -97,3 +97,4 @@
     box-shadow: 0 0 0 4px rgba(255, 105, 180, 0.5);
     /* Focus ring */
 }
+
