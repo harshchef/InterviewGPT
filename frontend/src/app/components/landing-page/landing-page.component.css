@@ -96,7 +96,7 @@
 .btn-primary-highlight:focus {
     outline: none;
     /* Remove default focus outline */
-    box-shadow: 0 0 0 4px rgba(255, 105, 180, 0.5);
+    box-shadow: 0 0 0 4px rgba(148, 105, 255, 0.5);
     /* Focus ring */
 }
 
