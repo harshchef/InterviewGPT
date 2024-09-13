@@ -1,7 +1,7 @@
 /* landing-page.component.css */
 
 .landing-page {
-    position: relative;
+    position:relative;
     color: white;
 }
 
@@ -61,7 +61,8 @@
 
 /* Button styling */
 .btn-primary-highlight {
-    background: linear-gradient(45deg,#ff007f, #ff00ff);
+    /* background: linear-gradient(45deg,#ff007f, #ff00ff); */
+        background: #626CD6;
     /* Gradient background */
     border: none;
     /* Remove default border */
@@ -82,8 +83,9 @@
 }
 
 .btn-primary-highlight:hover {
-    background: linear-gradient(45deg, #ff007f,
-        #ff00ff);
+    /* background: linear-gradient(45deg, #ff007f,
+        #ff00ff); */
+        background: #4954d0;
     /* Reversed gradient on hover */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
     /* Deeper shadow on hover */
