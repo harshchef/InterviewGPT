@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome, <span th:text="${name}">Guest</span>!</h1>
+    <p>Your email: <span th:text="${email}">your-email@example.com</span></p>
+    <p>Picture URL: <span th:text="${picture}"></span></p>
+
+    <div>
+        <img th:src="@{${picture}}" alt="Profile Picture ADDED" >
+
+    </div>
+</body>
+</html>
