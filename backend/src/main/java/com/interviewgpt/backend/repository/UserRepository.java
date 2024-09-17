@@ -1,8 +1,11 @@
 package com.interviewgpt.backend.repository;
 
-import com.interviewgpt.backend.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import com.interviewgpt.backend.entity.User;
+
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    User findByGoogleId(String googleId);
+    User findByUsername(String username);
 }

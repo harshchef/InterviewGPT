@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
+
 
 @NgModule({
   declarations: [
@@ -13,11 +18,16 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
     HomeComponent,
     LandingPageComponent,
     
-    LoginSignupComponent
+    LoginSignupComponent,
+          DashboardComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+  
+  
   ],
   providers: [
     provideClientHydration()

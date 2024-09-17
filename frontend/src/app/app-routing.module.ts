@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
     { path: '', component: LandingPageComponent },
+    { path: 'dashboard', component: DashboardComponent },
 { path: 'login', component: LoginSignupComponent },
   // { path: '**', redirectTo: '', pathMatch: 'full' } 
 ];

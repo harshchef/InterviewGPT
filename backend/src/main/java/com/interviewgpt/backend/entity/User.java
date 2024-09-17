@@ -1,27 +1,25 @@
-package com.interviewgpt.backend.models;
+package com.interviewgpt.backend.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
+import jakarta.persistence.Table;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Entity
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Data
+@Entity
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String googleId;
     private String name;
-    private String email;
-    private String picture;
+    private String username;
+    private String password;
 
     // Getters and Setters
 }
