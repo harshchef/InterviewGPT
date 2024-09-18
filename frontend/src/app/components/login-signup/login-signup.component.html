@@ -1,4 +1,4 @@
-<div class="login_form_container">
+<!-- <div class="login_form_container">
     <div class="login_form">
         <form (ngSubmit)="onLogin()">
             <h3>Log in with</h3>
@@ -40,3 +40,131 @@
         </form>
     </div>
 </div>
+
+ -->
+
+<!--         
+<ng-template #signupForm>
+   
+
+   
+    <form (ngSubmit)="onSignup()">
+        <h3>Sign Up</h3>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td><label for="name">Name</label></td>
+                    <td><input type="text" [(ngModel)]="signupName" name="name" id="name" placeholder="Enter your name" required /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="emailSignup">Email</label></td>
+                    <td><input type="email" [(ngModel)]="signupEmail" name="email" id="emailSignup" placeholder="Enter your email address" required /></td>
+                </tr>
+
+              <tr>
+                    <td><label for="college">College Name</label></td>
+                    <td><input type="text" [(ngModel)]="collegeName" name="college" id="college" placeholder="Enter your college name" required /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="year">Year of Passing</label></td>
+                    <td><input type="text" [(ngModel)]="yearOfPassing" name="year" id="year" placeholder="Enter your year of passing" required /></td>
+                </tr>
+
+                <tr>
+                    <td><label for="phone">Phone Number</label></td>
+                    <td><input type="text" [(ngModel)]="phoneNumber" name="phone" id="phone" placeholder="Enter your phone number" required /></td>
+                </tr> 
+
+                <tr>
+                    <td><label for="passwordSignup">Password</label></td>
+                    <td><input type="password" [(ngModel)]="signupPassword" name="password" id="passwordSignup" placeholder="Enter your password" required /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="submit">Sign Up</button>
+
+        <p class="sign_up">Already have an account? <a href="#" (click)="showLogin()">Log in</a></p>
+    </form>
+</ng-template> -->
+
+<div class="login_form_container">
+    <div class="login_form">
+        <!-- Login Form -->
+        <ng-container *ngIf="isLoginForm">
+            <form>
+                <h3>Log in with</h3>
+
+                <div class="login_option">
+                    <div class="option">
+                        <a href="#">
+                            <img src="assets/logos/google.png" alt="Google" />
+                            <span>Google</span>
+                        </a>
+                    </div>
+
+                    <div class="option">
+                        <a href="#">
+                            <img src="assets/logos/apple.png" alt="Apple" />
+                            <span>Apple</span>
+                        </a>
+                    </div>
+                </div>
+
+                <p class="separator"><span>or</span></p>
+
+                <div class="input_box">
+                    <label for="email">Email</label>
+                    <input type="email" [(ngModel)]="email" name="email" id="email" placeholder="Enter email address" required />
+                </div>
+
+                <div class="input_box">
+                    <div class="password_title">
+                        <label for="password">Password</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <input type="password" [(ngModel)]="password" name="password" id="password" placeholder="Enter your password" required />
+                </div>
+
+                <button (click)="onLogin()">Log In</button>
+
+                <p class="sign_up">Don't have an account?</p>  
+                <button (click)="showSignup()">Sign up</button>
+            </form>
+        </ng-container>
+
+        <!-- Signup Form -->
+        <ng-container *ngIf="!isLoginForm">
+            <form (ngSubmit)="onSignup()">
+                <h3>Sign Up</h3>
+
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label for="name">Name</label></td>
+                            <td><input type="text" [(ngModel)]="signupName" name="name" id="name" placeholder="Enter your name" required /></td>
+                        </tr>
+
+                        <tr>
+                            <td><label for="emailSignup">Email</label></td>
+                            <td><input type="email" [(ngModel)]="signupEmail" name="email" id="emailSignup" placeholder="Enter your email address" required /></td>
+                        </tr>
+
+                        <tr>
+                            <td><label for="passwordSignup">Password</label></td>
+                            <td><input type="password" [(ngModel)]="signupPassword" name="password" id="passwordSignup" placeholder="Enter your password" required /></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button type="submit">Sign Up</button>
+
+                <p class="sign_up">Already have an account? <a href="#" (click)="showLogin()">Log in</a></p>
+            </form>
+        </ng-container>
+    </div>
+</div>
+
