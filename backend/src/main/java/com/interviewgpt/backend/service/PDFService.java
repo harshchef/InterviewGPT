@@ -28,17 +28,27 @@ public class PDFService {
         PDFTextStripper pdfStripper = new PDFTextStripper();
         String text = pdfStripper.getText(document);
         document.close();
-
+    
         // Find the user by ID
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new IllegalArgumentException("User not found"));
-
-        // Save extracted text to the database along with the user reference
-        PDFData pdfData = new PDFData();
-        pdfData.setExtractedText(text);
-        pdfData.setUser(user);  // Associate PDFData with User
-        pdfDataRepository.save(pdfData);
-
+    
+        // Check if there is already a PDFData entry for the user
+        PDFData existingPdfData = pdfDataRepository.findByUserId(userId);
+    
+        if (existingPdfData != null) {
+            // Update the existing PDFData with the new text
+            existingPdfData.setExtractedText(text);
+            pdfDataRepository.save(existingPdfData);
+        } else {
+            // Create new PDFData and associate it with the user
+            PDFData pdfData = new PDFData();
+            pdfData.setExtractedText(text);
+            pdfData.setUser(user);  // Associate PDFData with User
+            pdfDataRepository.save(pdfData);
+        }
+    
         return text;
     }
+    
 }
