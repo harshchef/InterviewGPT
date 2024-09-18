@@ -10,6 +10,7 @@ import com.interviewgpt.backend.service.PDFService;
 import java.io.IOException;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/pdf")
 public class PDFController {
 

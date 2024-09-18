@@ -17,7 +17,6 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AppComponent,
     HomeComponent,
     LandingPageComponent,
-    
     LoginSignupComponent,
           DashboardComponent
   ],

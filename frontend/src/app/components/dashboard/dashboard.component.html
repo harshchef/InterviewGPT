@@ -1,1 +1,20 @@
-<p>dashboard works!</p>
+<div class="pdf-upload-container">
+    <h2>Upload Resume (PDF)</h2>
+    
+    <form (ngSubmit)="onPDFUpload()" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="userId">User ID</label>
+        <input type="number" id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="Enter your User ID" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="file">Upload Resume (PDF)</label>
+        <input type="file" id="file" (change)="onFileSelected($event)" class="form-control-file" accept=".pdf" required />
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+  
+    <div *ngIf="uploadMessage" class="alert alert-info mt-3">{{ uploadMessage }}</div>
+  </div>
+  
