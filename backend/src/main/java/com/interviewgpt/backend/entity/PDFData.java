@@ -1,34 +1,32 @@
 package com.interviewgpt.backend.entity;
 
-
-import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Data
 @Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "users")
-public class User {
+public class PDFData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    private String username;
-    private String password;
+    @Column(length = 65535, columnDefinition = "Text")
+    private String extractedText;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
-    private PDFData pdfData;
-    // Getters and Setters
+    // Establishing a One-to-One relationship with the User entity
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
+
 }
