@@ -68,22 +68,41 @@ export class LoginSignupComponent {
       password: this.password
     };
 
-    this.http.post('http://localhost:8080/login', authRequest, { responseType: 'text' })
-      .subscribe({
-        next: (response) => {
-          localStorage.setItem('token', response);
-          this.router.navigate(['/dashboard']);
-        },
-        error: (err) => {
-          if (err.status === 404) {
-            alert("Username not found.");
-          } else if (err.status === 401) {
-            alert("Invalid password.");
-          } else {
-            alert("Authentication failed.");
-          }
+    // this.http.post('http://localhost:8080/login', authRequest, { responseType: 'text' })
+    //   .subscribe({
+    //     next: (response) => {
+    //       localStorage.setItem('token', response);
+    //       this.router.navigate(['/dashboard']);
+    //     },
+    //     error: (err) => {
+    //       if (err.status === 404) {
+    //         alert("Username not found.");
+    //       } else if (err.status === 401) {
+    //         alert("Invalid password.");
+    //       } else {
+    //         alert("Authentication failed.");
+    //       }
+    //     }
+    //   });
+    this.http.post<{ token: string, userId: number }>('http://localhost:8080/login', authRequest)
+    .subscribe({
+      next: (response) => {
+        // Store JWT token in local storage or session storage
+        localStorage.setItem('token', response.token);
+
+        // Navigate to the dashboard and pass the userId as a route parameter
+        this.router.navigate(['/dashboard'], { queryParams: { userId: response.userId } });
+      },
+      error: (err) => {
+        if (err.status === 404) {
+          alert("Username not found.");
+        } else if (err.status === 401) {
+          alert("Invalid password.");
+        } else {
+          alert("Authentication failed.");
         }
-      });
+      }
+    });
   }
   onSignup() {
     const signupRequest = {
