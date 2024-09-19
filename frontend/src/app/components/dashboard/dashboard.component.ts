@@ -12,9 +12,9 @@ export class DashboardComponent {
   userId!: number;
   selectedFile!: File;
   uploadMessage: string = '';
-  additionalText: string = '';  // To store the text appended by the user
-  chatbotResponse: string = '';  // To store chatbot response
-  isLoading: boolean = false;    // To show loading spinner
+  additionalText: string = '';  
+  chatbotResponse: string = ''; 
+  isLoading: boolean = false;    
 
   constructor(private http: HttpClient, private route: ActivatedRoute) {}
 
@@ -73,7 +73,7 @@ export class DashboardComponent {
     } catch (error: any) {
       this.chatbotResponse = "Error: Unable to get a response from the chatbot. " + (error?.error || error?.message || 'Unknown error occurred.');
     } finally {
-      // Hide loading spinner
+  
       this.isLoading = false;
     }
   }
