@@ -1,69 +1,41 @@
-<!-- <div class="pdf-upload-container">
-    <h2>Upload Resume (PDF)</h2>
-    
-    <form (ngSubmit)="onPDFUpload()" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="userId">User ID</label>
-        <input type="number" id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="Enter your User ID" required />
-      </div>
-  
-      <div class="form-group">
-        <label for="file">Upload Resume (PDF)</label>
-        <input type="file" id="file" (change)="onFileSelected($event)" class="form-control-file" accept=".pdf" required />
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
-  
-    <div *ngIf="uploadMessage" class="alert alert-info mt-3">{{ uploadMessage }}</div>
-  </div>
 
+<div class="pdf-upload-container">
+  <h2>Upload Resume (PDF)</h2>
 
-   <div class="pdf-upload-container">
-    <h2>Upload Resume (PDF)</h2>
-    
-    <form (ngSubmit)="onPDFUpload()" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="userId">User ID</label>
-        <input type="number" id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="Enter your User ID" required />
-      </div>
-  
-      <div class="form-group">
-        <label for="file">Upload Resume (PDF)</label>
-        <input type="file" id="file" (change)="onFileSelected($event)" class="form-control-file" accept=".pdf" required />
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
-  
-    <div *ngIf="uploadMessage" class="alert alert-info mt-3">{{ uploadMessage }}</div>
-  </div>
-   -->
-
-   <div class="pdf-upload-container">
-    <h2>Upload Resume (PDF)</h2>
-  
-    <form (ngSubmit)="onPDFUpload()" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="userId">User ID</label>
-        <input type="number" id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="Enter your User ID" required />
-      </div>
-  
-      <div class="form-group">
-        <label for="file">Upload Resume (PDF)</label>
-        <input type="file" id="file" (change)="onFileSelected($event)" class="form-control-file" accept=".pdf" required />
-      </div>
-  
-      <button type="submit" class="btn btn-primary">Upload</button>
-    </form>
-  
-    <div *ngIf="uploadMessage" class="alert alert-info mt-3">{{ uploadMessage }}</div>
-
-    
-    <!-- Show chatbot response if available -->
-    <div *ngIf="chatbotResponse" class="alert alert-success mt-3">
-      <h4>Chatbot Assistance:</h4>
-      <p>{{ chatbotResponse }}</p>
+  <form (ngSubmit)="onPDFUpload()" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="userId">User ID</label>
+      <input type="number" id="userId" [(ngModel)]="userId" name="userId" class="form-control" placeholder="Enter your User ID" required />
     </div>
+
+    <div class="form-group">
+      <label for="file">Upload Resume (PDF)</label>
+      <input type="file" id="file" (change)="onFileSelected($event)" class="form-control-file" accept=".pdf" required />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Upload</button>
+  </form>
+
+  <div *ngIf="uploadMessage" class="alert alert-info mt-3">{{ uploadMessage }}</div>
+
+  <!-- Input field for appending custom text -->
+  <div *ngIf="uploadMessage">
+    <div class="form-group mt-3">
+      <label for="additionalText">Append Custom Text:</label>
+      <input type="text" id="additionalText" [(ngModel)]="additionalText" name="additionalText" class="form-control" placeholder="Enter additional text to append" />
+    </div>
+
+    <button class="btn btn-success mt-2" (click)="submitChatbotRequest()">Submit to Chatbot</button>
   </div>
-  
+
+  <!-- Show waiting spinner when loading -->
+  <div *ngIf="isLoading" class="alert alert-warning mt-3">
+    <i class="fas fa-spinner fa-spin"></i> Waiting for chatbot response...
+  </div>
+
+  <!-- Show chatbot response if available -->
+  <div *ngIf="chatbotResponse" class="alert alert-success mt-3">
+    <h4>Chatbot Assistance:</h4>
+    <p>{{ chatbotResponse }}</p>
+  </div>
+</div>
