@@ -4,12 +4,14 @@ import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GridComponent } from './components/grid/grid.component';
 
 const routes: Routes = [
     { path: '', component: LandingPageComponent },
     { path: 'dashboard', component: DashboardComponent },
 { path: 'login', component: LoginSignupComponent },
-  // { path: '**', redirectTo: '', pathMatch: 'full' } 
+{ path: 'grid', component: GridComponent },
+ { path: '**', redirectTo: '', pathMatch: 'full' } 
 ];
 
 @NgModule({

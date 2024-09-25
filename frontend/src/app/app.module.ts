@@ -9,8 +9,9 @@ import { LoginSignupComponent } from './components/login-signup/login-signup.com
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GridComponent } from './components/grid/grid.component';
 
-
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -18,12 +19,14 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     HomeComponent,
     LandingPageComponent,
     LoginSignupComponent,
-          DashboardComponent
+          DashboardComponent,
+          GridComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    AgGridModule,
     HttpClientModule
   
   
