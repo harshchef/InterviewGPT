@@ -15,8 +15,20 @@ export class DashboardComponent {
   additionalText: string = '';  
   chatbotResponse: string = ''; 
   isLoading: boolean = false;    
+  options = ['give me a summary of above resume', 'atleast 5 Interview Question for a software developer as a fresher', 'atleast 5 Interview Question for a software developer with respect to the technologies he has worked with as mentioned in the resume', 'what changes can be recommended in the resume'];
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) {}
+  // Object to store the checkbox values
+  selectedOptions: { [key: string]: boolean } = {
+
+    
+  };
+
+  constructor(private http: HttpClient, private route: ActivatedRoute) {
+
+    this.options.forEach(option => {
+      this.selectedOptions[option] = false;
+    });
+  }
 
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
@@ -47,6 +59,41 @@ export class DashboardComponent {
       this.uploadMessage = response || 'File uploaded successfully.';
     } catch (error: any) {
       this.uploadMessage = "Error uploading PDF: " + (error?.error || error?.message || 'Unknown error occurred.');
+    }
+  }
+
+
+  getSelectedOptions(): string {
+    return Object.keys(this.selectedOptions)
+      .filter(option => this.selectedOptions[option])
+      .join(', ');  // Join the selected options with a comma and space
+  }
+  
+  async submitChatbotRequestfromCheckbox() {
+    if (!this.uploadMessage) {
+      this.chatbotResponse = "Upload a PDF first.";
+      return;
+    }
+
+    const additionalPrompt = "Based on the resume given above give me ";
+    const checkboxoptions=this.getSelectedOptions();
+    const chatbotRequest = {
+      prompt_message: this.uploadMessage + ' '+additionalPrompt+' '   + checkboxoptions  + ' ',  // Append custom text
+      history_id: ''
+    };
+
+    // Show loading spinner
+    this.isLoading = true;
+
+    try {
+      // Send the POST request to the chatbot endpoint and await its response
+      const response = await this.http.post<{ result: string }>('http://localhost:8080/helpdesk/chat', chatbotRequest).toPromise();
+      this.chatbotResponse = response?.result || 'No response from the chatbot.';
+    } catch (error: any) {
+      this.chatbotResponse = "Error: Unable to get a response from the chatbot. " + (error?.error || error?.message || 'Unknown error occurred.');
+    } finally {
+  
+      this.isLoading = false;
     }
   }
 

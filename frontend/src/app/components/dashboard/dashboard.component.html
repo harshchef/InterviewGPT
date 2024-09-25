@@ -24,6 +24,21 @@
 
   <!-- Input field for appending custom text -->
   <div *ngIf="uploadMessage">
+      <div>
+        <div *ngFor="let option of options">
+          <label>
+            <input type="checkbox" [(ngModel)]="selectedOptions[option]" />
+            {{ option }}
+          </label>
+        </div>
+        
+        <button class="btn btn-success mt-2" (click)="submitChatbotRequestfromCheckbox()">Submit to Chatbot</button>
+        <!-- Display selected options -->
+        <!-- <p>Selected Options: {{ getSelectedOptions() | json }}</p> -->
+        
+      </div>
+
+
     <div class="form-group mt-3">
       <label for="additionalText">Prompt:</label>
       <input type="text" id="additionalText" [(ngModel)]="additionalText" name="additionalText" class="form-control" placeholder="Enter your prompt" />
